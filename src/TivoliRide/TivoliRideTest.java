@@ -9,11 +9,8 @@ public class TivoliRideTest {
         // Get user height
         System.out.print("How tall are you? (In real measurements)");
          int height = input.nextInt();
-        // TODO make a method that deals with inputs like: 1.80 1,80 180
-        // read string instead and remove dot or comma, then parse to int
 
-
-         // Objects
+         // Create objects
         Person person = new Person(height);
         TivoliRide ride  = new TivoliRide(130);
 
