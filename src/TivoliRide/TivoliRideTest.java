@@ -6,23 +6,47 @@ public class TivoliRideTest {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
+        // Get which ride
+        System.out.print("""
+                Which ride would you like to go on?
+                Options:
+                LegoRide
+                BatmanRide
+                TivoliRide
+                """);
+        String rideName = input.nextLine();
+
         // Get user height
         System.out.print("How tall are you? (In real measurements)");
-         int height = input.nextInt();
-        // TODO make a method that deals with inputs like: 1.80 1,80 180
-        // read string instead and remove dot or comma, then parse to int
+        int height = input.nextInt();
 
-
-         // Objects
+        // Objects
         Person person = new Person(height);
-        TivoliRide ride  = new TivoliRide(130);
+        TivoliRide LegoRide = new TivoliRide(130);
+        TivoliRide BatmanRide = new TivoliRide(150);
+        TivoliRide TivoliRide = new TivoliRide(140);
 
-        // Check if they're tall enough
-        if (person.height > ride.minHeight) {
-            System.out.println("Welcome to TivoliRide");
-        }
-        else  {
-            System.out.println("You're not tall enough for TivoliRide");
+        if (rideName.equalsIgnoreCase("TivoliRide")) {
+            // Check if they're tall enough
+            if (person.height > TivoliRide.minHeight) {
+                System.out.println("Welcome to TivoliRide");
+            } else {
+                System.out.println("You're not tall enough for TivoliRide");
+            }
+        } else if (rideName.equalsIgnoreCase("LegoRide")) {
+            if (person.height > LegoRide.minHeight) {
+                System.out.println("Welcome aboard the LegoRide");
+            } else {
+                System.out.println("You're not tall enough for the LegoRide");
+            }
+        } else if (rideName.equalsIgnoreCase("BatmanRide")) {
+            if (person.height > BatmanRide.minHeight) {
+                System.out.println("Welcome aboard the BatmanRide");
+            } else {
+                System.out.println("You're not tall enough for the BatmanRide");
+            }
+        } else {
+            System.out.println("Invalid Input");
         }
     }
 }
