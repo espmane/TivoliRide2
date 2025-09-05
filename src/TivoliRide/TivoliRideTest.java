@@ -8,20 +8,25 @@ public class TivoliRideTest {
 
         // Get which ride
         System.out.print("""
-                Which ride would you like to go on?
-                Options:
+                Hvilken ride vil du på?
+                Muligheder:
+                
                 LegoRide
                 BatmanRide
                 TivoliRide
                 """);
         String rideName = input.nextLine();
 
+        // Get user name
+        System.out.println("Hvad er dit navn?");
+        String name = input.nextLine();
+
         // Get user height
-        System.out.print("How tall are you? (In real measurements)");
+        System.out.println("Hvor høj er du? (I centimeter)");
         int height = input.nextInt();
 
         // Objects
-        Person person = new Person(height);
+        Person person = new Person(height,name);
         TivoliRide LegoRide = new TivoliRide(130);
         TivoliRide BatmanRide = new TivoliRide(150);
         TivoliRide TivoliRide = new TivoliRide(140);
@@ -29,24 +34,24 @@ public class TivoliRideTest {
         if (rideName.equalsIgnoreCase("TivoliRide")) {
             // Check if they're tall enough
             if (person.height > TivoliRide.minHeight) {
-                System.out.println("Welcome to TivoliRide");
+                System.out.println(person.name + ", velkommen til TivoliRide");
             } else {
-                System.out.println("You're not tall enough for TivoliRide");
+                System.out.println(person.name + ", du er ikke høj nok til TivoliRide");
             }
         } else if (rideName.equalsIgnoreCase("LegoRide")) {
             if (person.height > LegoRide.minHeight) {
-                System.out.println("Welcome aboard the LegoRide");
+                System.out.println(person.name + ", velkommen til LegoRide");
             } else {
-                System.out.println("You're not tall enough for the LegoRide");
+                System.out.println(person.name + ", du er ikke høj nok til LegoRide");
             }
         } else if (rideName.equalsIgnoreCase("BatmanRide")) {
             if (person.height > BatmanRide.minHeight) {
-                System.out.println("Welcome aboard the BatmanRide");
+                System.out.println(person.name + ", velkommen til BatmanRide");
             } else {
-                System.out.println("You're not tall enough for the BatmanRide");
+                System.out.println(person.name + ", du er ikke høj nok til BatmanRide");
             }
         } else {
-            System.out.println("Invalid Input");
+            System.out.println("Ikke gyldigt input, prøv igen");
         }
     }
 }
